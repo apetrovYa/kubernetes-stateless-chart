@@ -16,6 +16,10 @@ dependencies:
     alias: app
 ```
 
+## Repository
+
+Checkout the [release.json](./release.json) for details about where the chart is hosted.
+
 ## Prerequisites
 
 - Kubernetes 1.24+;
