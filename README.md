@@ -1,34 +1,26 @@
 # Kubernetes Stateless Chart
 
-This chart is a generic Helm chart to use for packaging any Kubernetes application.
+`kubernetes-stateless-chart` is a generic Helm chart to use for the packaging of any Kubernetes application.
 
 ## How to use this chart
 
-This chart is formatted as an OCI package. The artifact is hosted on the following public OCI repository: `public.registry.jetbrains.space/p/helm/library`.
-
-### Pull the chart from the repository
-
-```shell
-helm pull oci://public.registry.jetbrains.space/p/helm/library/kubernetes-stateless-chart --version 1.0.0
-```
-
-### Show the supported values for the chart
-
-```shell
-helm show all oci://public.registry.jetbrains.space/p/helm/library/kubernetes-stateless-chart --version 1.0.0
-```
-
-### Use it in your chart as a dependency
+This chart is formatted as an OCI package. Include it as a dependency from [ArtifactHUB](https://artifacthub.io/).
 
 Add it to your Chart.yaml file of your Helm package.
 
 ```yaml
 dependencies:
   - name: kubernetes-stateless-chart
-    repository: oci://public.registry.jetbrains.space/p/helm/library
+    repository: oci://REGISTRY/REPOSITORY
     version: 1.x.x
     alias: app
 ```
+
+## Prerequisites
+
+- Kubernetes 1.24+;
+
+- Helm 3+.
 
 ## Parameters
 

@@ -8,13 +8,11 @@ annotations:
   category: Infrastructure
 keywords:
   - golden-chart
-  - jetbrains
   - helper
   - template
 maintainers:
-  - name: JetBrains
-    url: https://jetbrains.com
-icon: https://avatars.githubusercontent.com/u/878437?s=200&v=4
+  - name: andov
+    url: https://github.com/apetrovYa
 dependencies:
   - name: common
     repository: https://charts.bitnami.com/bitnami
