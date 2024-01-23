@@ -7,7 +7,7 @@ on:
       - main
 
 jobs:
-  release:
+  push:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -28,16 +28,7 @@ jobs:
       - name: Set up chart-testing
         uses: helm/chart-testing-action@v2.6.0
 
-      - name: Run chart-testing (list-changed)
-        id: list-changed
-        run: |
-          changed=$(ct list-changed --target-branch ${{ github.event.repository.default_branch }} --chart-dirs . ) 
-          if [[ -n "$changed" ]]; then
-            echo "changed=true" >> "$GITHUB_OUTPUT"
-          fi
-
       - name: Run chart release
-        if: steps.list-changed.outputs.changed == 'true'
         run: |
           touch .env
 
@@ -50,14 +41,12 @@ jobs:
           release
 
       - name: Parse the Chart.yaml file
-        if: steps.list-changed.outputs.changed == 'true'
         uses: pietrobolcato/action-read-yaml@1.0.0
         id: parse-chart-yaml
         with:
           config: ${{ github.workspace }}/Chart.yaml
       
       - name: Set the tag
-        if: steps.list-changed.outputs.changed == 'true'
         id: set-tag-number
         run: |
           echo "Chart Version: ${steps.parse-chart-yaml.outputs.version} "
