@@ -55,7 +55,7 @@ tests/
 values.schema.json
 schema.values.json
 # Docs related
-README.md
+#README.md
 LICENSE
 
 ct.yaml
