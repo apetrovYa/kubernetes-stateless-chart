@@ -46,7 +46,7 @@ jobs:
           release
 
       - name: Parse the Chart.yaml file
-        uses: the-coding-turtle/ga-yaml-parser@v0.1
+        uses: the-coding-turtle/ga-yaml-parser@v0.1.2
         id: parse-chart-yaml
         with:
           directory: ${{ github.workspace }}/Chart.yaml
