@@ -46,10 +46,10 @@ jobs:
           release
 
       - name: Parse the Chart.yaml file
-        uses: pietrobolcato/action-read-yaml@1.0.0
+        uses: the-coding-turtle/ga-yaml-parser@v0.1
         id: parse-chart-yaml
         with:
-          config: ${{ github.workspace }}/Chart.yaml
+          directory: ${{ github.workspace }}/Chart.yaml
       
       - name: Set the tag
         id: set-tag-number
