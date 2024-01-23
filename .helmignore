@@ -57,3 +57,5 @@ values.schema.json
 # Docs related
 README.md
 LICENSE
+
+ct.yaml
