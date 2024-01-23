@@ -24,14 +24,14 @@ dependencies:
 
 ## Parameters
 
-### Global Parameters
+### Global parameters
 
 | Name                      | Description                                                    | Value |
 | ------------------------- | -------------------------------------------------------------- | ----- |
 | `global.imageRegistry`    | Specify the registry that stores the images                    | `""`  |
 | `global.imagePullSecrets` | Specify the credentials as secret names for pulling the images | `[]`  |
 
-### Common Parameters
+### Common parameters
 
 | Name                | Description                                                                                     | Value |
 | ------------------- | ----------------------------------------------------------------------------------------------- | ----- |
@@ -41,7 +41,7 @@ dependencies:
 | `commonAnnotations` | Provide a map of key/value pairs of annotations to be applied to all resources in the templates | `{}`  |
 | `namespaceOverride` | Provide a name to fully override lib.namespace in the templates                                 | `""`  |
 
-### Application Parameters
+### Application parameters
 
 | Name                                                | Description                                                                                                                                                                                                                                                                                                                                                         | Value                                                                                    |
 | --------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
@@ -157,7 +157,7 @@ dependencies:
 | `initContainers`                                    | Specify a list of initialization containers belonging to the pod                                                                                                                                                                                                                                                                                                    | `[]`                                                                                     |
 | `additionalInitContainers`                          | Specify a list of additional initialization containers belonging to the pod                                                                                                                                                                                                                                                                                         | `[]`                                                                                     |
 
-### Configuration
+### Application configuration file
 
 | Name                         | Description                                                                                       | Value |
 | ---------------------------- | ------------------------------------------------------------------------------------------------- | ----- |
@@ -167,13 +167,18 @@ dependencies:
 | `defaultConfig.config`       | Specify the default application configuration                                                     | `""`  |
 | `defaultConfig.customValues` | Specify a map of custom values to be referenced by the application.defaultConfig.config parameter | `{}`  |
 
-### Environment variables
+### Application environment variables
 
-| Name                                | Description                                                                 | Value |
-| ----------------------------------- | --------------------------------------------------------------------------- | ----- |
-| `envs`                              | Environment variables                                                       | `{}`  |
-| `additionalEnvs`                    | Additional environment variables                                            | `{}`  |
-| `internalEnvSecret`                 | Specify the internal secret name that contains system environment variables | `""`  |
-| `externalEnvSecret`                 | Specify the external secret name that contains system environment variables | `""`  |
-| `kubernetesYamlResources`           | Kubernetes objects to add to the application package                        | `[]`  |
-| `additionalKubernetesYamlResources` | Add additional Kubernetes objects to add to the application package         | `[]`  |
+| Name                | Description                                                                 | Value |
+| ------------------- | --------------------------------------------------------------------------- | ----- |
+| `envs`              | Environment variables                                                       | `{}`  |
+| `additionalEnvs`    | Additional environment variables                                            | `{}`  |
+| `internalEnvSecret` | Specify the internal secret name that contains system environment variables | `""`  |
+| `externalEnvSecret` | Specify the external secret name that contains system environment variables | `""`  |
+
+### Application Kubernetes resources
+
+| Name                                | Description                                                         | Value |
+| ----------------------------------- | ------------------------------------------------------------------- | ----- |
+| `kubernetesYamlResources`           | Kubernetes objects to add to the application package                | `[]`  |
+| `additionalKubernetesYamlResources` | Add additional Kubernetes objects to add to the application package | `[]`  |
