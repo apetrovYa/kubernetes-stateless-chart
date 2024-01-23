@@ -4,17 +4,21 @@
 
 ## How to use this chart
 
-This chart is formatted as an OCI package. Include it as a dependency from [ArtifactHUB](https://artifacthub.io/).
+This chart is formatted as an OCI package. Include it as a dependency from [Quay.io](https://quay.io/repository/andov_go/helm-library/kubernetes-stateless-chart).
 
 Add it to your Chart.yaml file of your Helm package.
 
 ```yaml
 dependencies:
   - name: kubernetes-stateless-chart
-    repository: oci://REGISTRY/REPOSITORY
+    repository: oci://quay.io/andov.go/helm-library
     version: 1.x.x
     alias: app
 ```
+
+## Repository
+
+Checkout the [release.json](./release.json) for details about where the chart is hosted.
 
 ## Prerequisites
 
