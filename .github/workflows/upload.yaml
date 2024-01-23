@@ -46,16 +46,17 @@ jobs:
           release
 
       - name: Parse the Chart.yaml file
-        uses: the-coding-turtle/ga-yaml-parser@v0.1.2
+        uses: jbutcher5/read-yaml@main
         id: parse-chart-yaml
         with:
           file: ${{ github.workspace }}/Chart.yaml
+          key-path: '["version"]'
       
       - name: Set the tag
         id: set-tag-number
         run: |
-          echo "Chart Version: ${steps.parse-chart-yaml.outputs.version} "
-          echo "version=${steps.parse-chart-yaml.outputs.version}" >> "$GITHUB_OUTPUT"
+          echo "Chart Version: ${{steps.parse-chart-yaml.outputs.data}}"
+          echo "version=${{steps.parse-chart-yaml.outputs.data}}" >> "$GITHUB_OUTPUT"
 
           
 
