@@ -51,4 +51,9 @@ Makefile
 *.lock
 examples/
 unittests/
+tests/
 values.schema.json
+
+# Docs related
+README.md
+LICENSE
