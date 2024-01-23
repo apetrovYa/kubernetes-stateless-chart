@@ -13,7 +13,7 @@ global:
   ## Example:
   ## imagePullSecrets:
   ##  - dockerRegistryKeySecretName
-  imagePullSecrets: [ ]
+  imagePullSecrets: []
 
 ## @section Common parameters
 ##
@@ -25,10 +25,10 @@ nameOverride: ""
 fullnameOverride: ""
 ## @param commonLabels Provide a map of key/value pairs of labels to be applied to all resources in the templates
 ##
-commonLabels: { }
+commonLabels: {}
 ## @param commonAnnotations Provide a map of key/value pairs of annotations to be applied to all resources in the templates
 ##
-commonAnnotations: { }
+commonAnnotations: {}
 ## @param namespaceOverride Provide a name to fully override lib.namespace in the templates
 ##
 namespaceOverride: ""
@@ -63,7 +63,7 @@ image:
   ## pullSecrets:
   ##   - myRegistryKeySecretName
   ##
-  pullSecrets: [ ]
+  pullSecrets: []
 ## @param entrypoint Provide arguments to the entrypoint of the application.
 ##
 ## Not executed within a shell. The container image's ENTRYPOINT is used if this is
@@ -76,10 +76,10 @@ image:
 ##
 ## Ref: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell
 ##
-entrypoint: [ ]
+entrypoint: []
 ## @param customEntrypoint Overwrite in full the parameter application.entrypoint.
 ##
-customEntrypoint: [ ]
+customEntrypoint: []
 ## @param args Provide arguments to the entrypoint of the application.
 ##
 ## The container image's CMD is used if this is not provided. Variable references
@@ -96,7 +96,7 @@ args:
   - --admin-password='$$2y$$05$$aO9DEethtRMRpmyc4p0Dn.4MUvoJ274844ej9IdUS16kpiu43d6R6'
 ## @param customArgs Overwrite in full the parameter application.args.
 ##
-customArgs: [ ]
+customArgs: []
 ## Service Account
 ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/
 ## @param serviceAccount.create Specify whether to create a service account
@@ -115,10 +115,10 @@ serviceAccount:
   create: false
   name: ""
   automountServiceAccountToken: true
-  labels: { }
-  additionalLabels: { }
-  annotations: { }
-  additionalAnnotations: { }
+  labels: {}
+  additionalLabels: {}
+  annotations: {}
+  additionalAnnotations: {}
   ## The below 4 lines allows to specify what permissions to enable for this ServiceAccount
   ## at namespace or cluster level. The settings below accept valid Kubernetes rules list objects.
   ##
@@ -127,16 +127,16 @@ serviceAccount:
   ## - apiGroups: [""] # "" indicates the core API group
   ##   resources: ["pods"]
   ##   verbs: ["get", "watch", "list"]
-  namespacePermissions: [ ]
-  additionalNamespacePermissions: [ ]
+  namespacePermissions: []
+  additionalNamespacePermissions: []
   ## Example:
   ## namespacePermissions:
   ##  # at the HTTP level, the name of the resource for accessing Secret objects is "secrets"
   ##  - apiGroups: [""]
   ##    resources: ["secrets"]
   ##    verbs: ["get", "watch", "list"]
-  clusterPermissions: [ ]
-  additionalClusterPermissions: [ ]
+  clusterPermissions: []
+  additionalClusterPermissions: []
 ## Horizontal Pod Autoscaling
 ## ref: https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/
 ## @param autoscaling.enabled Enables/disables autoscaling
@@ -176,20 +176,20 @@ rollingUpdateStrategyConfig:
 ## @param podLabels Specify labels to apply at PodSpec level
 ## ref: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels
 ##
-podLabels: { }
+podLabels: {}
 ## @param additionalPodLabels Additional labels to apply at PodSpec level
 ## ref: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels
 ##
-additionalPodLabels: { }
+additionalPodLabels: {}
 ## @param podAnnotations Specify annotations to apply at PodSpec level
 ## ref: https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations
 ##
 
-podAnnotations: { }
+podAnnotations: {}
 ## @param additionalPodAnnotations Additional annotations to apply at PodSpec level
 ## ref: https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations
 ##
-additionalPodAnnotations: { }
+additionalPodAnnotations: {}
 
 ## Hardware Resources
 ## Ref: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers
@@ -234,11 +234,11 @@ service:
     - name: http
       port: 8080
       targetPort: http
-  additionalPorts: [ ]
-  annotations: { }
-  additionalAnnotations: { }
-  labels: { }
-  additionalLabels: { }
+  additionalPorts: []
+  annotations: {}
+  additionalAnnotations: {}
+  labels: {}
+  additionalLabels: {}
 ## Pods Security Context
 ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-pod
 ## @param podSecurityContext.fsGroup Group ID that has access to the filesystem at run-time
@@ -260,7 +260,7 @@ containerSecurityContext:
 
 ## @param customContainerSecurityContext Overwrite partially the application.containerSecurityContext property
 ##
-customContainerSecurityContext: { }
+customContainerSecurityContext: {}
 ## Liveness and Readiness Probes
 ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/#configure-probes
 ## @extra application.livenessProbe Specify the default liveness probe
@@ -293,7 +293,7 @@ livenessProbe:
   failureThreshold: 3
 ## @param customLivenessProbe Overwrite partially the application.livenessProbe property
 ##
-customLivenessProbe: { }
+customLivenessProbe: {}
 ## @extra application.readinessProbe Specify the default readiness probe
 ## @param readinessProbe.httpGet.path Application side HTTP URI that outlines if it is ready
 ## @param readinessProbe.httpGet.port Application port that is open for probing type of requests
@@ -324,7 +324,7 @@ readinessProbe:
   failureThreshold: 3
 ## @param customReadinessProbe Overwrite partially the application.readinessProbe property
 ##
-customReadinessProbe: { }
+customReadinessProbe: {}
 ## Startup Probe
 ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-startup-probes
 ## @extra application.startupProbe Specify the default startup probe
@@ -357,10 +357,10 @@ startupProbe:
   failureThreshold: 3
 ## @param customStartupProbe Overwrite partially the application.startupProbe property
 ##
-customStartupProbe: { }
+customStartupProbe: {}
 ## @param customAffinity Overwrite in full the default affinity rules
 ##
-customAffinity: { }
+customAffinity: {}
 ## @param nodeName Specify the NodeName where to schedule a pod. Leave empty for auto scheduling decision
 ##
 nodeName: ""
@@ -371,7 +371,7 @@ nodeName: ""
 ## nodeSelector:
 ##  diskType: ssd
 ##
-nodeSelector: { }
+nodeSelector: {}
 
 ## Ingress
 ## Ref: https://kubernetes.io/docs/user-guide/ingress
@@ -392,7 +392,7 @@ nodeSelector: { }
 ingress:
   enabled: true
   name: ""
-  alternateDnsNames: [ ]
+  alternateDnsNames: []
   certValidityDuration: ""
   pathType: ImplementationSpecific
   hostname: "containers.app"
@@ -416,19 +416,19 @@ ingress:
   ##
   ## @param ingress.annotations Key/value map with annotations
   ## @param ingress.additionalAnnotations Additional key/value map with annotations
-  annotations: { }
-  additionalAnnotations: { }
+  annotations: {}
+  additionalAnnotations: {}
   ## @param ingress.labels Key/value map with labels
   ## @param ingress.additionalLabels Additional key/value map with labels
-  labels: { }
-  additionalLabels: { }
+  labels: {}
+  additionalLabels: {}
   ## TLS certificates will be retrieved from a TLS secret with the following name: {{- printf "%s-tls" .Values.ingress.hostname }}
   ## You can use the ingress.secrets parameter to create this TLS secret or rely on cert-manager to create it.
   ##
   tls: false
   ## Any additional arbitrary paths that may need to be added to Ingress under the main host.
   ## For example: The ALB Ingress controller requires a special rule for handling SSL redirection.
-  additionalPaths: [ ]
+  additionalPaths: []
   ## - path: /*
   ##   backend:
   ##     service:
@@ -439,7 +439,7 @@ ingress:
   ## The TLS configuration for additional hostnames is covered with this Ingress record.
   ## Use this configuration block also in case the certificates are managed outside this Helm chart.
   ## see: https://kubernetes.io/docs/concepts/services-networking/ingress/#tls
-  additionalTLS: [ ]
+  additionalTLS: []
   ## - hosts:
   ##     - jetbrains.net
   ##   secretName: tls-jetbrains.net
@@ -460,7 +460,7 @@ ingress:
   ##           port:
   ##             name: http
   ##
-  additionalRules: [ ]
+  additionalRules: []
   ## Name of the external secret related to the main hostname in the Ingress definition
   ## Example:
   ## secret: "tls-jetbrains.application"
@@ -501,7 +501,7 @@ volumes:
 ##
 ## application.additionalVolumes has the same structure as application.volumes. For an example, reference application.volumes.
 ##
-additionalVolumes: [ ]
+additionalVolumes: []
 ## @param sidecars Specify containers to run alongside the main container
 ##
 ## A sidecar allows enhancing an application with additional functionality.
@@ -517,11 +517,11 @@ additionalVolumes: [ ]
 ##       - name: shared-logs
 ##         mountPath: /var/log/nginx
 ##
-sidecars: [ ]
+sidecars: []
 ## @param additionalSidecars Specify additional containers to run alongside the main container
 ##
 ## Note:  additionalSidecars list supports only the schema outlined in the sidecars object.
-additionalSidecars: [ ]
+additionalSidecars: []
 ## @param initContainers Specify a list of initialization containers belonging to the pod
 ##
 ## Example:
@@ -553,10 +553,10 @@ additionalSidecars: [ ]
 ##     runAsNonRoot: true
 ##     runAsUser: 10001
 ##
-initContainers: [ ]
+initContainers: []
 ## @param additionalInitContainers Specify a list of additional initialization containers belonging to the pod
 ##
-additionalInitContainers: [ ]
+additionalInitContainers: []
 
 ## @section Application configuration file
 ##
@@ -570,7 +570,7 @@ defaultConfig:
   name: ""
   mountPath: ""
   config: ""
-  customValues: { }
+  customValues: {}
 ## @section Application environment variables
 ##
 ## @param envs Environment variables
@@ -579,13 +579,13 @@ defaultConfig:
 ## APP_OPTS: "CustomEnvironmentVariable"
 ## ENV_CONF_1: "ValueOne"
 ##
-envs: { }
+envs: {}
 ## @param additionalEnvs Additional environment variables
 ## Ref: https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container
 ## Example:
 ## APP_OPTS_2: "CustomEnvironmentVariable2"
 ##
-additionalEnvs: { }
+additionalEnvs: {}
 ## @param internalEnvSecret Specify the internal secret name that contains system environment variables
 ##
 ## This secret contains a valid set of environment variables that are compatible with the main application.
@@ -615,7 +615,7 @@ externalEnvSecret: ""
 ##       app.kubernetes.io/component: '{{ include "lib.componentName" . }}'
 ##       '{{- include "lib.labels" . | nindent 4 }}'
 ##
-kubernetesYamlResources: [ ]
+kubernetesYamlResources: []
 ## @param additionalKubernetesYamlResources Add additional Kubernetes objects to add to the application package
 ##
 ## Example:
@@ -633,4 +633,4 @@ kubernetesYamlResources: [ ]
 ##       limits.cpu: "4"
 ##       limits.memory: 4Gi
 ##
-additionalKubernetesYamlResources: [ ]
+additionalKubernetesYamlResources: []
