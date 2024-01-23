@@ -4,7 +4,7 @@
 ## This is a YAML-formatted file.
 ##
 
-## @section Global Parameters
+## @section Global parameters
 ##
 ## @param global.imageRegistry Specify the registry that stores the images
 ## @param global.imagePullSecrets Specify the credentials as secret names for pulling the images
@@ -15,7 +15,7 @@ global:
   ##  - dockerRegistryKeySecretName
   imagePullSecrets: [ ]
 
-## @section Common Parameters
+## @section Common parameters
 ##
 ## @param nameOverride Provide a prefix to partially override the lib.name in the templates
 ##
@@ -33,7 +33,7 @@ commonAnnotations: { }
 ##
 namespaceOverride: ""
 
-## @section Application Parameters
+## @section Application parameters
 ##
 ## @param include Includes/Excludes the configurations for this application
 ##
@@ -41,7 +41,7 @@ include: true
 ## @param name Application name
 ##
 name: ""
-## Image Parameters
+## Image parameters
 ## Ref: https://kubernetes.io/docs/concepts/containers/images
 ## @param image.registry URL of the container registry
 ## @param image.repository URL of the container repository
@@ -558,7 +558,7 @@ initContainers: [ ]
 ##
 additionalInitContainers: [ ]
 
-## @section Configuration
+## @section Application configuration file
 ##
 ## @param config Overwrites the configuration in application.defaultConfig.config
 ## @param defaultConfig.name Specify the default application configuration file name
@@ -571,7 +571,7 @@ defaultConfig:
   mountPath: ""
   config: ""
   customValues: { }
-## @section Environment variables
+## @section Application environment variables
 ##
 ## @param envs Environment variables
 ## Ref: https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container
@@ -601,6 +601,8 @@ internalEnvSecret: ""
 ## leaked in the deployment version of the values.yaml file.
 ## Note: envs, additionalEnvs will be ignored when externalEnvSecret is set
 externalEnvSecret: ""
+## @section Application Kubernetes resources
+##
 ## @param kubernetesYamlResources Kubernetes objects to add to the application package
 ##
 ## Example:
