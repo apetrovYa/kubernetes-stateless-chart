@@ -7,13 +7,7 @@ Return a valid application configuration file.
 {{- if .Values.config }}
 {{- .Values.config }}
 {{- else }}
-{{- if .Values.defaultConfig.config }}
-{{- .Values.defaultConfig.config }}
-{{- else }}
-ktor {
-
-}
-{{- end }}
+{{- .Values.defaultConfig.config -}}
 {{- end }}
 {{- end }}
 
