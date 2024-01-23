@@ -53,7 +53,7 @@ examples/
 unittests/
 tests/
 values.schema.json
-
+schema.values.json
 # Docs related
 README.md
 LICENSE
