@@ -35,7 +35,7 @@ jobs:
           echo "HELM_CHARTS_REGISTRY_USERNAME=${HELM_CHARTS_REGISTRY_USERNAME}" >> .env
           echo "HELM_CHARTS_REGISTRY_PASSWORD=${HELM_CHARTS_REGISTRY_PASSWORD}" >> .env
 
-          docker run -it \
+          docker run \
           -v "$PWD:/app/chart:rw" \
           --env-file .env quay.io/andov_go/helm-packager:latest \
           release
