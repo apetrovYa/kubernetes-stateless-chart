@@ -37,6 +37,11 @@ jobs:
 
           docker run \
           -v "$PWD:/app/chart:rw" \
+          --env-file .env --entrypoint bash quay.io/andov_go/helm-packager:latest \
+          -c "make dependencies"
+
+          docker run \
+          -v "$PWD:/app/chart:rw" \
           --env-file .env quay.io/andov_go/helm-packager:latest \
           release
 
