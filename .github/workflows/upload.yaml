@@ -49,7 +49,7 @@ jobs:
         uses: the-coding-turtle/ga-yaml-parser@v0.1.2
         id: parse-chart-yaml
         with:
-          directory: ${{ github.workspace }}/Chart.yaml
+          file: ${{ github.workspace }}/Chart.yaml
       
       - name: Set the tag
         id: set-tag-number
