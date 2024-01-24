@@ -2,9 +2,9 @@ apiVersion: v2
 name: kubernetes-stateless-chart
 description: A Generic Helm chart for a stateless Kubernetes application
 type: application
-version: 1.0.2
+version: 1.0.3
 appVersion: 1.0.0
-icon: https://gravatar.com/andovgo
+icon: https://raw.githubusercontent.com/kubernetes/kubernetes/master/logo/logo.png
 annotations:
   category: Infrastructure
 keywords:
